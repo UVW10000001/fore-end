@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- sql映射文件,用于编写sql语句 -->
+<mapper namespace="com.uvw.pbath.mapper.PetMapper">
+	<!-- 根据学生的账号和密码查询一个学生信息,
+		  用于学生登录使用
+	 -->
+	<insert id="saveRecord" parameterType="com.uvw.pbath.entity.Users"> 
+		INSERT INTO
+			orders(phone,username,petname,combo,date)
+		VALUES
+			(#{phone},#{username},#{petname},#{combo},#{date});
+<!-- 		insert into
+		order (username,phone,petname,combo,date)
+		values
+			 (); -->
+	</insert>
+	<select id="findRecordByPhone" parameterType="com.uvw.pbath.entity.Users" resultType="com.uvw.pbath.entity.Users">
+	select
+		*
+	from 
+		orders
+	where 
+		phone = #{phone};
+	</select>
+</mapper>
